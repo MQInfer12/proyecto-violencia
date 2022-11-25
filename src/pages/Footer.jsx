@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import Facebook from '../img/facebook.png'
 const Footer = () => {
   return (
     <div>
@@ -8,7 +8,7 @@ const Footer = () => {
        <Divfoot>
          <Divcaja>
          <h1>Redes Sociales</h1>
-           <Alogo href="https://www.facebook.com/PoliciaBolivianaCochabamba"><Img src="src/img/facebook.png" alt="" /></Alogo>
+           <Alogo href="https://www.facebook.com/PoliciaBolivianaCochabamba"><Img src={Facebook} alt="" /></Alogo>
           
          </Divcaja>
          <Divcaja>
