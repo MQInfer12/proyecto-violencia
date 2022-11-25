@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import DesconocidoImg from "../img/desconocido.png";
 import { Link } from "react-router-dom";
-import { editDoc } from "../utilities/firebase";
+import { editDoc, getUser } from "../utilities/firebase";
 import { useIdiom } from "../context/idiomContext";
 
 const Container = styled.div`
@@ -80,6 +80,9 @@ const Register = () => {
 
   const Registrarse = async () => {
     editDoc("users", datos.ci, {...datos, audios: []});
+    const adm = await getUser("admin", "123456");
+    adm.usuarios++;
+    editDoc("users", "1", adm);
     swal("Correcto!", "Te creaste con exito la cuenta!", "success");
     setDatos({
       nombre: "",

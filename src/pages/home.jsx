@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useUserContext } from "../context/userContext";
-import { editDoc, getAllAudios, getAudios, getUser } from "../utilities/firebase";
+import { editDoc, getAllPublicaciones, getAllUsers, getUser } from "../utilities/firebase";
 import { doc, getFirestore, onSnapshot } from 'firebase/firestore';
 import { useIdiom } from "../context/idiomContext";
 
 const Home = () => {
   const [audios, setAudios] = useState([]);
+  const [publicaciones, setPublicaciones] = useState([]);
   const { idioma } = useIdiom();
   const { user } = useUserContext();
   const msg = `¡Soy ${user.nombre} necesito ayuda! mi direccion es ${user.direccion}, la casa ${user.vivienda}, mi CI es ${user.ci}, llamen a mi numero de emergencia ${user.emergencia}`;
@@ -80,8 +81,10 @@ const Home = () => {
         const unsub = onSnapshot(
           doc(getFirestore(), "users", user.ci),
           async (doc) => {
-            const auds = await getAllAudios();
+            const auds = await getAllUsers();
+            const pubs = await getAllPublicaciones();
             setAudios(auds);
+            setPublicaciones(pubs);
           }
         );
         return () => {
@@ -123,8 +126,15 @@ const Home = () => {
                 <p>Direccion: {v.direccion}</p>
                 <p>Vivienda: {v.vivienda}</p>
                 {
-                  v.audios.map((v, j) => (
-                    <audio key={j} controls src={v}></audio>
+                  publicaciones.filter(pub => pub.ci === v.ci).map((va, j) => (
+                    <p key={j}>
+                      Historia: {va.history}
+                    </p>
+                  ))  
+                }
+                {
+                  v.audios.map((va, j) => (
+                    <audio key={j} controls src={va}></audio>
                   ))
                 }
               </div>

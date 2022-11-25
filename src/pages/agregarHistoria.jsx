@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { editDoc } from "../utilities/firebase";
+import { editDoc, getUser } from "../utilities/firebase";
 import { v4 as uuidv4 } from "uuid";
 import { useUserContext } from "../context/userContext";
 
 const Container = styled.div`
-  height: 100vh;
+  height: calc(100vh - 100px);
+  background: linear-gradient(#bfd3d5, #dde4e6);
   display: grid;
   place-content: center;
 `;
@@ -43,13 +44,22 @@ const AgregarHistoria = () => {
   const [datos, setDatos] = useState({
     nombre: user.nombre,
     history: history,
+    ci: user.ci
   });
+
+  const actualizarPublicaciones = async () => {
+    const adm = await getUser("admin", "123456");
+    adm.publicaciones++;
+    editDoc("users", "1", adm);
+  }
 
   const handleSaveData = (e) => {
     e.preventDefault();
     editDoc("publicaciones", user.ci, datos);
+    actualizarPublicaciones();
     swal("Correcto!", "Se realizo con exito tu publicacion", "success");
   };
+
   return (
     <Container>
       <ContainerSoon>
