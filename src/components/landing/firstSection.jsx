@@ -34,12 +34,16 @@ export default FirstSection
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #BFD3D5;
-  padding: 200px;
+  padding: 100px;
+
+  @media (max-width: 1325px) {
+    padding: 50px;
+  }
 `
 
 const ClimaContainer = styled.div`
@@ -49,6 +53,12 @@ const ClimaContainer = styled.div`
   padding: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 1325px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 40px;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -57,6 +67,10 @@ const TextContainer = styled.div`
   gap: 20px;
   align-items: center;
   justify-content: space-around;
+  
+  @media (max-width: 670px) {
+    transform: scale(0.8);
+  }
 `;
 
 const Title = styled.div`
@@ -76,10 +90,15 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 `;
 
 const ImgClima = styled.img`
-  transform: scale(0.8);
+  object-fit: cover;
+
+  @media (max-width: 670px) {
+    width: 100%;
+  }
 `;
 
 const ImgMini = styled.img`
@@ -100,7 +119,8 @@ const Description = styled.p`
 const Button = styled.button`
   height: 50px;
   border-radius: 25px;
-  width: 500px;
+  padding: 10px;
+  width: 200px;
   cursor: pointer;
   transition: all 0.3s;
   border: 1px solid #27737D;
