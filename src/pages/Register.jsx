@@ -77,7 +77,7 @@ const Register = () => {
   });
 
   const Registrarse = async () => {
-    editDoc("users", ci, datos);
+    editDoc("users", datos.ci, datos);
   }
 
   return (

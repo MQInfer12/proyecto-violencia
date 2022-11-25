@@ -1,13 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DesconocidoImg from "../img/desconocido.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getUser } from "../utilities/firebase";
+import { useUserContext } from "../context/userContext";
+
+const Login = () => {
+  const { setUser } = useUserContext();
+  const navigate = useNavigate();
+
+  const [datos, setDatos] = useState({
+    nombre: "",
+    password: "",
+  });
+
+  const IniciarSesion = async () => {
+    const user = await getUser(datos.nombre, datos.password);
+    if(user) {
+      setUser(user);
+      navigate("/home");
+    } else {
+      alert("Usuario o contraseña incorrectos");
+    }
+  }
+  
+  return (
+    <Container>
+      <ContainerSoon>
+        <ContainerImg>
+          <Img src={DesconocidoImg} alt="" />
+        </ContainerImg>
+        <Form action="">
+          <Input placeholder="Nombre" type="text" value={datos.nombre} 
+            onChange={
+              (e) => setDatos(old => ({...old, nombre: e.target.value}))
+            }
+          />
+          <Input placeholder="contraseña" type="text" value={datos.password} 
+            onChange={
+              (e) => setDatos(old => ({...old, password: e.target.value}))
+            }
+          />
+          <P to="/register">Create una cuenta</P>
+          <Button onClick={IniciarSesion}>Iniciar datos</Button>
+        </Form>
+      </ContainerSoon>
+    </Container>
+  );
+};
+
+export default Login;
+
 const Container = styled.div`
   display: grid;
   height: calc(100vh - 100px);
   place-content: center;
   background: linear-gradient(#bfd3d5, #dde4e6);
 `;
+
 const ContainerSoon = styled.div`
   /*  background: rgba(
     255,
@@ -21,20 +71,24 @@ const ContainerSoon = styled.div`
   border-radius: 15px;
   width: 320px;
 `;
+
 const ContainerImg = styled.div`
   display: flex;
   justify-content: center;
   height: 100px;
   margin-bottom: 15px;
 `;
+
 const Img = styled.img`
   filter: invert(100%) sepia(0%) saturate(7457%) hue-rotate(271deg)
     brightness(104%) contrast(100%);
 `;
-const Form = styled.form`
+
+const Form = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 const Input = styled.input`
   background-color: transparent;
   border: none;
@@ -47,6 +101,7 @@ const Input = styled.input`
     text-transform: uppercase;
   }
 `;
+
 const Button = styled.button`
   margin-top: 15px;
   color: #fff;
@@ -58,6 +113,7 @@ const Button = styled.button`
     background: linear-gradient(#adb3b5, #27737d);
   }
 `;
+
 const P = styled(Link)`
   color: white;
   font-size: 14px;
@@ -66,22 +122,3 @@ const P = styled(Link)`
   text-decoration: none;
   margin-top: 12px;
 `;
-const Login = () => {
-  return (
-    <Container>
-      <ContainerSoon>
-        <ContainerImg>
-          <Img src={DesconocidoImg} alt="" />
-        </ContainerImg>
-        <Form action="">
-          <Input placeholder="Nombre" type="text" name="" id="" />
-          <Input placeholder="contraseña" type="text" name="" id="" />
-            <P to="/register">Create una cuenta</P>
-          <Button>Guardar datos</Button>
-        </Form>
-      </ContainerSoon>
-    </Container>
-  );
-};
-
-export default Login;

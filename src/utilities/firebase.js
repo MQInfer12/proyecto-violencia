@@ -4,8 +4,8 @@ export const editDoc = async (collection, name, obj) => {
   await setDoc(doc(getFirestore(), collection, name), obj);
 }
 
-export const getGame = async (id) => {
-  const q = query(collection(getFirestore(), "games"), where("id", "==", id));
+export const getUser = async (nombre, password) => {
+  const q = query(collection(getFirestore(), "users"), where("nombre", "==", nombre), where("password", "==", password));
   try {
     const querySnapshot = await getDocs(q);
     if(querySnapshot.docs[0]) {
