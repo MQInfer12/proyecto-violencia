@@ -35,7 +35,9 @@ const Button = styled.button`
   }
 `;
 const AgregarHistoria = () => {
-  const handleSaveData = () => {};
+  const handleSaveData = () => {
+    swal("Correcto!", "Se realizo con exito tu publicacion", "success");
+  };
   return (
     <Container>
       <ContainerSoon>

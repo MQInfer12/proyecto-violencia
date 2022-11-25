@@ -80,6 +80,7 @@ const Register = () => {
 
   const Registrarse = async () => {
     editDoc("users", datos.ci, datos);
+    swal("Correcto!", "Te creaste con exito la cuenta!", "success");
   };
 
   return (
@@ -122,7 +123,9 @@ const Register = () => {
             }
           />
           <Input
-            placeholder={idioma == "Español" ? "Direccion exacta" : "Maypi Tiakunky"}
+            placeholder={
+              idioma == "Español" ? "Direccion exacta" : "Maypi Tiakunky"
+            }
             type="text"
             value={datos.direccion}
             onChange={(e) =>
@@ -138,14 +141,18 @@ const Register = () => {
             }
           />
           <Input
-            placeholder={idioma == "Español" ? "Numero de emergencia" : "karu rimay"}
+            placeholder={
+              idioma == "Español" ? "Numero de emergencia" : "karu rimay"
+            }
             type="text"
             value={datos.emergencia}
             onChange={(e) =>
               setDatos((old) => ({ ...old, emergencia: e.target.value }))
             }
           />
-          <P to="/login">{idioma == "Español" ? "Inicio Sesion" : "Qallariy"}</P>
+          <P to="/login">
+            {idioma == "Español" ? "Inicio Sesion" : "Qallariy"}
+          </P>
           <Button onClick={Registrarse}>
             {idioma == "Español" ? "Guardar Datos" : "Jallch'ay"}
           </Button>
