@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { editDoc } from "../utilities/firebase";
+import { v4 as uuidv4 } from "uuid";
+import { useUserContext } from "../context/userContext";
 
 const Container = styled.div`
   height: 100vh;
@@ -35,7 +38,16 @@ const Button = styled.button`
   }
 `;
 const AgregarHistoria = () => {
-  const handleSaveData = () => {
+  const [history, setHistory] = useState("");
+  const { user } = useUserContext();
+  const [datos, setDatos] = useState({
+    nombre: user.nombre,
+    history: history,
+  });
+
+  const handleSaveData = (e) => {
+    e.preventDefault();
+    editDoc("publicaciones", user.ci, datos);
     swal("Correcto!", "Se realizo con exito tu publicacion", "success");
   };
   return (
@@ -43,8 +55,16 @@ const AgregarHistoria = () => {
       <ContainerSoon>
         <Form action="">
           <Label htmlFor="">Cuentanos tu historia</Label>
-          <textarea name="description" cols="20" rows="10"></textarea>
-          <Button onClick={() => handleSaveData()}>Publicar</Button>
+          <textarea
+            value={datos.history}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, history: e.target.value }))
+            }
+            name="description"
+            cols="20"
+            rows="10"
+          ></textarea>
+          <Button onClick={(e) => handleSaveData(e)}>Publicar</Button>
         </Form>
       </ContainerSoon>
     </Container>

@@ -38,7 +38,7 @@ const Navbar = () => {
             <LinkStyled to="/login" onClick={() => setUser({})}>
               {idioma === "Español" ? "Cerrar sesión" : "Whisk'ana"}
             </LinkStyled>
-            <LinkStyled to="/cuentanos" onClick={() => setUser({})}>
+            <LinkStyled to="/cuentanos">
               {idioma === "Español"
                 ? "Cuentanos tu historia"
                 : "Yachachiwa qasaguiqui"}
