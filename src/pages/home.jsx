@@ -114,7 +114,7 @@ const Home = () => {
         <button id="btnStop">STOP RECORDING</button>
       </p>
 
-     {/*  <audio controls></audio> */}
+       <audio controls></audio> 
 
       <audio id="adioPlay" controls></audio>
     </Container>
