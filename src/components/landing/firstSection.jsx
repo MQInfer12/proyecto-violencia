@@ -14,6 +14,13 @@ const FirstSection = () => {
               Clima en Bolivia
             </Title>
           </Titlecontainer>
+          <TextClima>
+            ¡Clima y tiempo en toda Bolivia!
+          </TextClima>
+          <Description>
+            ¡Descubre el clima en cada departamento del país y consigue buenos datos del clima en estos momentos!
+          </Description>
+          <Button>Descarga ahora</Button>
         </TextContainer>
         <ImageContainer>
           <ImgClima src={WeatherImg} />
@@ -27,36 +34,55 @@ export default FirstSection
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #BFD3D5;
   padding: 100px;
+
+  @media (max-width: 1325px) {
+    padding: 50px;
+  }
 `
 
 const ClimaContainer = styled.div`
   width: 100%;
   height: 100%;
   background-color: #EFEFEF;
-  padding: 20px;
+  padding: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 1325px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 40px;
+  }
 `;
 
 const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-around;
   
+  @media (max-width: 670px) {
+    transform: scale(0.8);
+  }
 `;
 
 const Title = styled.div`
   display: flex;
   gap: 20px;
+  display: flex;
+  justify-content: center;
 `;
 
 const Titlecontainer = styled.h2`
   font-size: 32px;
   font-weight: 700;
-  padding-left: 100px;
 `;
 
 const ImageContainer = styled.div`
@@ -64,12 +90,43 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 `;
 
 const ImgClima = styled.img`
-  transform: scale(1.3);
+  object-fit: cover;
+
+  @media (max-width: 670px) {
+    width: 100%;
+  }
 `;
 
 const ImgMini = styled.img`
   object-fit: cover;
+`;
+
+const TextClima = styled.h3`
+  font-size: 56px;
+  font-weight: 800;
+  max-width: 400px;
+`;
+
+const Description = styled.p`
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 400px;
+`;
+
+const Button = styled.button`
+  height: 50px;
+  border-radius: 25px;
+  padding: 10px;
+  width: 200px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid #27737D;
+
+  &:hover {
+    background-color: #27737D;
+    color: #FFFFFF;
+  }
 `;
