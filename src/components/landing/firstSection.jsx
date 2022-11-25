@@ -1,9 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import WeatherImg from '../../assets/landing/weather.png';
-import MiniImg from '../../assets/landing/mini.png';
+import React from "react";
+import styled from "styled-components";
+import WeatherImg from "../../assets/landing/weather.png";
+import MiniImg from "../../assets/landing/mini.png";
+import { useIdiom } from "../../context/idiomContext";
 
 const FirstSection = () => {
+  const { handleIdioma, idioma } = useIdiom();
+
   return (
     <Container>
       <ClimaContainer>
@@ -11,26 +14,34 @@ const FirstSection = () => {
           <Titlecontainer>
             <Title>
               <ImgMini src={MiniImg} />
-              Clima en Bolivia
+              {idioma == "Español" ? "Clima en Bolivia" : "Clima Boliviamanta"}
             </Title>
           </Titlecontainer>
           <TextClima>
-            ¡Clima en toda Bolivia!
+            {idioma == "Español"
+              ? "¡Clima en toda Bolivia!"
+              : "Clima tukuy Boliviamanta"}
           </TextClima>
           <Description>
-            ¡Descubre el clima en cada departamento del país y consigue buenos datos del clima en estos momentos!
+            {idioma == "Español"
+              ? "¡Descubre el clima en cada departamento del país y consigue buenos datos del clima en estos momentos!"
+              : "Tarinqui kaypi tukuy intista y kapunky sumaj llachainyuj"}
           </Description>
-          <Button>Descarga ahora</Button>
+          <Button>
+          {idioma == "Español"
+              ? "Descarga ahora"
+              : "Kaimanta"}
+          </Button>
         </TextContainer>
         <ImageContainer>
           <ImgClima src={WeatherImg} />
         </ImageContainer>
       </ClimaContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default FirstSection
+export default FirstSection;
 
 const Container = styled.div`
   width: 100%;
@@ -38,18 +49,18 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #BFD3D5;
+  background-color: #bfd3d5;
   padding: 100px;
 
   @media (max-width: 1325px) {
     padding: 50px;
   }
-`
+`;
 
 const ClimaContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   padding: 50px;
   display: flex;
 
@@ -66,7 +77,7 @@ const TextContainer = styled.div`
   gap: 20px;
   align-items: center;
   justify-content: space-around;
-  
+
   @media (max-width: 670px) {
     transform: scale(0.8);
   }
@@ -86,7 +97,7 @@ const Titlecontainer = styled.h2`
 
 const ImageContainer = styled.div`
   width: 100%;
-  background-color: #DDE4E6;
+  background-color: #dde4e6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,10 +138,10 @@ const Button = styled.button`
   width: 200px;
   cursor: pointer;
   transition: all 0.3s;
-  border: 1px solid #27737D;
+  border: 1px solid #27737d;
 
   &:hover {
-    background-color: #27737D;
-    color: #FFFFFF;
+    background-color: #27737d;
+    color: #ffffff;
   }
 `;
