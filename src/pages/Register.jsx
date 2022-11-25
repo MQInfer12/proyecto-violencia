@@ -1,21 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DesconocidoImg from "../img/desconocido.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { editDoc } from "../utilities/firebase";
 
 const Container = styled.div`
   display: grid;
-  height: 100vh;
+  height: calc(100vh - 100px);
   place-content: center;
   background: linear-gradient(#bfd3d5, #dde4e6);
 `;
 const ContainerSoon = styled.div`
-  /*  background: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); // Make sure this color has an opacity of less than 1 */
   background: #27737d;
   backdrop-filter: blur(8px); // This be the blur
   padding: 35px;
@@ -32,7 +27,7 @@ const Img = styled.img`
   filter: invert(100%) sepia(0%) saturate(7457%) hue-rotate(271deg)
     brightness(104%) contrast(100%);
 `;
-const Form = styled.form`
+const Form = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -41,12 +36,14 @@ const Input = styled.input`
   border: none;
   border-bottom: 1px solid white;
   margin-top: 10px;
+  padding: 10px;
   ::placeholder {
     color: white;
     font-size: 0.8em;
     text-transform: uppercase;
   }
 `;
+
 const P = styled(Link)`
   color: white;
   font-size: 14px;
@@ -55,6 +52,7 @@ const P = styled(Link)`
   text-decoration: none;
   margin-top: 12px;
 `;
+
 const Button = styled.button`
   margin-top: 15px;
   color: #fff;
@@ -66,7 +64,22 @@ const Button = styled.button`
     background: linear-gradient(#adb3b5, #27737d);
   }
 `;
+
 const Register = () => {
+  const [datos, setDatos] = useState({
+    nombre: "",
+    telefono: "",
+    ci: "",
+    password: "",
+    direccion: "",
+    vivienda: "",
+    emergencia: ""
+  });
+
+  const Registrarse = async () => {
+    editDoc("users", ci, datos);
+  }
+
   return (
     <Container>
       <ContainerSoon>
@@ -74,15 +87,43 @@ const Register = () => {
           <Img src={DesconocidoImg} alt="" />
         </ContainerImg>
         <Form action="">
-          <Input placeholder="Nombre" type="text" name="" id="" />
-          <Input placeholder="Numero de telefono" type="text" name="" id="" />
-          <Input placeholder="Ci" type="text" name="" id="" />
-          <Input placeholder="Contraseña" type="text" name="" id="" />
-          <Input placeholder="Direccion exacta" type="text" name="" id="" />
-          <Input placeholder="Vivienda" type="text" name="" id="" />
-          <Input placeholder="Numero de emergencia" type="text" name="" id="" />
+          <Input placeholder="Nombre" type="text" value={datos.nombre} 
+            onChange={
+              (e) => setDatos(old => ({...old, nombre: e.target.value}))
+            }
+          />
+          <Input placeholder="Numero de telefono" type="text" value={datos.telefono} 
+            onChange={
+              (e) => setDatos(old => ({...old, telefono: e.target.value}))
+            }
+          />
+          <Input placeholder="Ci" type="text" value={datos.ci} 
+            onChange={
+              (e) => setDatos(old => ({...old, ci: e.target.value}))
+            }
+          />
+          <Input placeholder="Contraseña" type="text" value={datos.password} 
+            onChange={
+              (e) => setDatos(old => ({...old, password: e.target.value}))
+            }
+          />
+          <Input placeholder="Direccion exacta" type="text" value={datos.direccion} 
+            onChange={
+              (e) => setDatos(old => ({...old, direccion: e.target.value}))
+            }
+          />
+          <Input placeholder="Vivienda" type="text" value={datos.vivienda} 
+            onChange={
+              (e) => setDatos(old => ({...old, vivienda: e.target.value}))
+            }
+          />
+          <Input placeholder="Numero de emergencia" type="text" value={datos.emergencia} 
+            onChange={
+              (e) => setDatos(old => ({...old, emergencia: e.target.value}))
+            }
+          />
           <P to="/login">Iniciar sesion</P>
-          <Button>Guardar datos</Button>
+          <Button onClick={Registrarse}>Guardar datos</Button>
         </Form>
       </ContainerSoon>
     </Container>
