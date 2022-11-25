@@ -35,13 +35,18 @@ const Navbar = () => {
             <LinkStyled to="#">
               {idioma == "Español" ? "Instrucciones" : "Instruccionesmanta"}
             </LinkStyled>
-            <LinkStyled to="/login" onClick={() => setUser({})}>
-              {idioma === "Español" ? "Cerrar sesión" : "Whisk'ana"}
+            <LinkStyled to="/home">
+              {idioma === "Español"
+                ? "Ayuda"
+                : "Llanapay"}
             </LinkStyled>
             <LinkStyled to="/cuentanos">
               {idioma === "Español"
                 ? "Cuentanos tu historia"
-                : "Yachachiwa qasaguiqui"}
+                : "Yachachiwa kausaikyta"}
+            </LinkStyled>
+            <LinkStyled to="/login" onClick={() => setUser({})}>
+              {idioma === "Español" ? "Cerrar sesión" : "Whisk'ana"}
             </LinkStyled>
             <LinkStyled onClick={handleIdioma}>
               Ver en {idioma === "Español" ? "Quechua" : "Español"}

@@ -5,7 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useUserContext } from "../context/userContext";
 
 const Container = styled.div`
-  height: 100vh;
+  height: calc(100vh - 100px);
+  background: linear-gradient(#bfd3d5, #dde4e6);
   display: grid;
   place-content: center;
 `;
