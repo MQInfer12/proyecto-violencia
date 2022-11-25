@@ -1,19 +1,27 @@
 import React from 'react'
+import styled from 'styled-components';
+import { useUserContext } from '../context/userContext'
 
 const Home = () => {
-  const name = 'Martha'
-  const direccion = 'Cala cala'
-  const msg =`soy ${name} necesito ayuda mi direccion es ${direccion}`
+  const { user } = useUserContext();
+  const msg =`¡Soy ${user.nombre} necesito ayuda! mi direccion es ${user.direccion}, la casa ${user.vivienda}, mi CI es ${user.ci}, llamen a mi numero de emergencia ${user.emergencia}`
 
   const handleHelp = () => {
     window.open(`https://api.whatsapp.com/send/?phone=59176407344&text=${msg}`, '_blank');
   }
 
   return (
-    <div>
+    <Container>
       <button onClick={handleHelp}>Ayuda</button>
-    </div>
+    </Container>
   )
 }
 
 export default Home
+
+const Container = styled.div`
+  display: grid;
+  height: calc(100vh - 100px);
+  place-content: center;
+  background: linear-gradient(#bfd3d5, #dde4e6);
+`;

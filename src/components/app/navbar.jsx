@@ -1,15 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import { useUserContext } from '../../context/userContext';
 
 const Navbar = () => {
+  const { user, setUser } = useUserContext();
+
   return (
     <Nav>
       <Title>Clima</Title>
       <LinkContainer>
-        <LinkStyled to="/">Inicio</LinkStyled>
-        <LinkStyled to="#">Instrucciones</LinkStyled>
-        <LinkStyled to="/login">Regístrate</LinkStyled>
+        {
+          Object.keys(user).length === 0 ? 
+          <>
+            <LinkStyled to="/">Inicio</LinkStyled>
+            <LinkStyled to="#">Instrucciones</LinkStyled>
+            <LinkStyled to="/login">Regístrate</LinkStyled> 
+          </> :
+          <LinkStyled onClick={() => setUser({})} to="/login">Cerrar sesion</LinkStyled>
+        }
       </LinkContainer>
     </Nav>
   )
@@ -39,8 +48,4 @@ const LinkStyled = styled(Link)`
 const LinkContainer = styled.div`
   display: flex;
   gap: 20px;
-  
-  &:hover {
-    
-  }
 `;
