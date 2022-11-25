@@ -6,9 +6,13 @@ const Climate = () => {
     <Div>
       <Card>
         <Divcaja>
-          <H1grados>22º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          <img src="" alt="" />
+          <div>
+            <H1grados>22º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <div>
+            <Img src="src/img/sol.png" alt="" />
+          </div>
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-Cochabamba</Pais>
@@ -17,9 +21,13 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>23º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          <img src="" alt="" />
+         <div>
+             <H1grados>30º</H1grados>
+             <Ptiempo>Verano</Ptiempo>
+         </div>
+          <div>
+            <Img src="src/img/sol.png" alt="" />
+          </div>
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-Santa Cruz</Pais>
@@ -28,9 +36,13 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>15º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          <img src="" alt="" />
+          <div>
+            <H1grados>15º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <div>
+            <Img src="src/img/lluvia.png" alt="" />
+          </div>
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-Potosi</Pais>
@@ -39,9 +51,12 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>10º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          <img src="" alt="" />
+          <div>
+            <H1grados>10º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+
+          <Img src="src/img/nieve.png" alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-Oruro</Pais>
@@ -50,9 +65,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>19º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          
+          <div>
+            <H1grados>19º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src="src/img/lluvia2.png" alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-La paz</Pais>
@@ -61,9 +78,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>20º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          
+          <div>
+            <H1grados>20º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src="src/img/lluvia3.png" alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-Chuquisaca</Pais>
@@ -72,9 +91,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>22º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          
+          <div>
+            <H1grados>28º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src="src/img/sol.png" alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-Pando</Pais>
@@ -83,9 +104,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>30º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          
+          <div>
+            <H1grados>30º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src="src/img/sol.png" alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-Beni</Pais>
@@ -94,9 +117,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>32º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          
+         <div>
+             <H1grados>32º</H1grados>
+             <Ptiempo>Verano</Ptiempo>
+         </div>
+          <Img src="src/img/sol.png" alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>Bolivia-Tarija</Pais>
@@ -113,6 +138,7 @@ width: 100%;
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
+ justify-content: space-around;
 `;
 
 const Card = styled.div`
@@ -124,12 +150,15 @@ const Card = styled.div`
   background: #fefefe;
   border-radius: 10px;
   padding: 20px;
+  
 
   
 `;
 
 const Divcaja = styled.div`
   margin: 10px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Divcaja1 = styled.div`
@@ -143,4 +172,8 @@ const Pais = styled.p``;
 const Pgrados = styled.p`
   color: rgba(0, 0, 0, 0.5);
 
+`;
+const Img=styled.img`
+    width: 50px;
+    height: 50px;
 `;
