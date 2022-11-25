@@ -109,14 +109,10 @@ const Home = () => {
 
   return (
     <Container>
-<<<<<<< HEAD
       <button onClick={handleHelp}>{idioma == "Español" ? "Ayuda" : "Yanapay"}</button>
-    </Container>
-  )
-}
-=======
-      <button onClick={handleHelp}>Ayuda</button>
->>>>>>> 164a4ee96066148311b722b0019cb69c89bd16e8
+  
+  
+
 
       <p>
         <button id="btnStart">START RECORDING</button>
