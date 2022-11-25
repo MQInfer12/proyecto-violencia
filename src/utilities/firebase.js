@@ -16,7 +16,7 @@ export const getUser = async (nombre, password) => {
   }
 }
 
-export const getAllAudios = async () => {
+export const getAllUsers = async () => {
   const q = query(collection(getFirestore(), "users"));
   try {
     const querySnapshot = await getDocs(q);
@@ -35,6 +35,26 @@ export const getAllAudios = async () => {
   }
 }
 
+export const getAllPublicaciones = async () => {
+  const q = query(collection(getFirestore(), "publicaciones"));
+  try {
+    const querySnapshot = await getDocs(q);
+    const allAudios = [];
+    if(querySnapshot.docs[0]) {
+      querySnapshot.docs.forEach(doc => {
+        if(doc.data().ci != 1) {
+          const aud = doc.data();
+          allAudios.push(aud);
+        }
+      });
+      return allAudios;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+
 export const getAudios = async (nombre, password) => {
   const q = query(collection(getFirestore(), "users"), where("nombre", "==", nombre), where("password", "==", password));
   try {
@@ -45,17 +65,6 @@ export const getAudios = async (nombre, password) => {
   } catch (e) {
     console.log(e);
   }
-}
-
-export const Snapshot = async (id) => {
-  onSnapshot(
-    doc(getFirestore(), "users", id),
-    async (doc) => {
-      doc.data();
-    }
-  );
-
-  unsub();
 }
 
 export const removeDoc = async (id) => {

@@ -4,11 +4,10 @@ import WeatherImg from "../../assets/landing/weather.png";
 import MiniImg from "../../assets/landing/mini.png";
 import { useIdiom } from "../../context/idiomContext";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../pages/Footer";
 
 const FirstSection = () => {
   const navigate = useNavigate();
-  const { handleIdioma, idioma } = useIdiom();
+  const { idioma } = useIdiom();
 
   return (
     <Container>
