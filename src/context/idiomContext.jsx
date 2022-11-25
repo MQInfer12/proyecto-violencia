@@ -1,9 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const IdiomContext = createContext();
 
 export const useIdiom = () => {
-  const context = useContext(UserContext);
+  const context = useContext(IdiomContext);
   if (!context) {
     throw new Error(
       "this contexts must be used whitin a IdiomaContextProvider"
