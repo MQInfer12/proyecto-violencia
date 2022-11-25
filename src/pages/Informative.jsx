@@ -15,7 +15,7 @@ const Informative = () => {
                      </figure>
                      <Divcontenido>
                       <H1>Violencia</H1>
-                      <P>el uso deliberado de la fuerza física o el poder, ya sea en grado de amenaza o efectivo, contra uno mismo, otra persona o un grupo o comunidad, que cause o tenga muchas probabilidades de causar lesiones, muerte, daños psicológicos, trastornos del desarrollo o privaciones.</P>                     
+                      <P>El uso deliberado de la fuerza física o el poder, ya sea en grado de amenaza o efectivo, contra uno mismo, otra persona o un grupo o comunidad, que cause o tenga muchas probabilidades de causar lesiones, muerte, daños psicológicos, trastornos del desarrollo o privaciones.</P>                     
                      </Divcontenido>
                   </Divcard>
                   <Divcard>
@@ -34,7 +34,7 @@ const Informative = () => {
                        <Imgcard src="src\img\informativo1.jpg" />
                      </figure>
                      <Divcontenido>
-                      <H1>Maltrato</H1>
+                      <H1>Violencia contra la mujer</H1>
                       <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt aut consequuntur libero natus eaque non expedita harum rem, corrupti dolores numquam consectetur excepturi aperiam exercitationem unde magni doloribus nesciunt accusamus.</P>                     
                      </Divcontenido>
                   </Divcard>
