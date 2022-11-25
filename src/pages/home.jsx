@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useUserContext } from "../context/userContext";
+import { editDoc, getAllAudios, getAudios, getUser } from "../utilities/firebase";
+import { doc, getFirestore, onSnapshot } from 'firebase/firestore';
 
 const Home = () => {
+  const [audios, setAudios] = useState([]);
   const { user } = useUserContext();
   const msg = `¡Soy ${user.nombre} necesito ayuda! mi direccion es ${user.direccion}, la casa ${user.vivienda}, mi CI es ${user.ci}, llamen a mi numero de emergencia ${user.emergencia}`;
 
@@ -13,110 +16,138 @@ const Home = () => {
     );
   };
 
-  let audioIN = { audio: true };
-  //  audio is true, for recording
+  const getBase64 = (file, cb) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      cb(reader.result);
+    };
+    reader.onerror = function (error) {
+      return console.log('Error: ', error);
+    };
+  }
 
-  // Access the permission for use
-  // the microphone
+  let audioIN = { audio: true };
   navigator.mediaDevices
     .getUserMedia(audioIN)
-
-    // 'then()' method returns a Promise
-    .then(function (mediaStreamObj) {
-      // Connect the media stream to the
-      // first audio element
-      let audio = document.querySelector("audio");
-      //returns the recorded audio via 'audio' tag
-
-      // 'srcObject' is a property which
-      // takes the media object
-      // This is supported in the newer browsers
-      if ("srcObject" in audio) {
-        audio.srcObject = mediaStreamObj;
-      } else {
-        // Old version
-        audio.src = window.URL.createObjectURL(mediaStreamObj);
-      }
-
-      // It will play the audio
-      audio.onloadedmetadata = function (ev) {
-        // Play the audio in the 2nd audio
-        // element what is being recorded
-        audio.play();
-      };
-
-      // Start record
+    .then((mediaStreamObj) => {
       let start = document.getElementById("btnStart");
-
-      // Stop record
       let stop = document.getElementById("btnStop");
-
-      // 2nd audio tag for play the audio
       let playAudio = document.getElementById("adioPlay");
-
-      // This is the main thing to recorde
-      // the audio 'MediaRecorder' API
       let mediaRecorder = new MediaRecorder(mediaStreamObj);
-      // Pass the audio stream
 
-      // Start event
-      start.addEventListener("click", function (ev) {
+      start.addEventListener("click", function () {
         mediaRecorder.start();
-        // console.log(mediaRecorder.state);
       });
 
       // Stop event
-      stop.addEventListener("click", function (ev) {
+      stop.addEventListener("click", function () {
         mediaRecorder.stop();
-        // console.log(mediaRecorder.state);
       });
 
-      // If audio data available then push
-      // it to the chunk array
       mediaRecorder.ondataavailable = function (ev) {
         dataArray.push(ev.data);
       };
 
-      // Chunk array to store the audio data
       let dataArray = [];
 
-      // Convert the audio data in to blob
-      // after stopping the recording
-      mediaRecorder.onstop = function (ev) {
-        // blob of type mp3
+      mediaRecorder.onstop = function () {
         let audioData = new Blob(dataArray, { type: "audio/mp3;" });
-
-        // After fill up the chunk
-        // array make it empty
+        getBase64(audioData, async (res) => {
+          const doc = await getUser(user.nombre, user.password);
+          const adm = await getUser("admin", "123456");
+          if(doc) {
+            doc.audios.push(res);
+            adm.audios++;
+            editDoc("users", user.ci, doc);
+            editDoc("users", "1", adm);
+          };
+        });
         dataArray = [];
-
-        // Creating audio url with reference
-        // of created blob named 'audioData'
         let audioSrc = window.URL.createObjectURL(audioData);
-
-        // Pass the audio url to the 2nd video tag
         playAudio.src = audioSrc;
       };
     })
-
-    // If any error occurs then handles the error
     .catch(function (err) {
       console.log(err.name, err.message);
     });
 
+  useEffect(() => {
+    if(user.ci === "1") {
+      const llenarAudios = async () => {
+        const unsub = onSnapshot(
+          doc(getFirestore(), "users", user.ci),
+          async (doc) => {
+            const auds = await getAllAudios();
+            setAudios(auds);
+          }
+        );
+        return () => {
+          unsub();
+        };
+      };
+  
+      llenarAudios();
+    } else {
+      const llenarAudios = async () => {
+        const unsub = onSnapshot(
+          doc(getFirestore(), "users", user.ci),
+          async (doc) => {
+            const aud = doc.data();
+            setAudios(aud.audios);
+          }
+        );
+        return () => {
+          unsub();
+        };
+      };
+  
+      llenarAudios();
+    }
+  }, []);
+
   return (
     <Container>
-      <button onClick={handleHelp}>Ayuda</button>
+      {
+        user.ci === "1" ?
+        <>
+          <p>Audios de las personas:</p>
+          {
+            audios.map((v, i) => (
+              <div key={i}>
+                <p>Nombre: {v.nombre}</p>
+                <p>Numero de emergencia: {v.emergencia}</p>
+                <p>Telefono: {v.telefono}</p>
+                <p>Direccion: {v.direccion}</p>
+                <p>Vivienda: {v.vivienda}</p>
+                {
+                  v.audios.map((v, j) => (
+                    <audio key={j} controls src={v}></audio>
+                  ))
+                }
+              </div>
+            ))
+          }
+        </> :
+        <>
+          <button onClick={handleHelp}>Ayuda</button>
 
-      <p>
-        <button id="btnStart">START RECORDING</button>
+          <div style={{display: "flex", gap: "20px"}}>
+            <button id="btnStart">EMPEZAR A GRABAR</button>
+            <button id="btnStop">TERMINAR DE GRABAR</button>
+          </div>
 
-        <button id="btnStop">STOP RECORDING</button>
-      </p>
+          <p>Ultimo audio: </p>
+          <audio id="adioPlay" controls></audio>
 
-      <audio style={{display:"none"}} controls muted></audio>
-
-      <audio id="adioPlay" controls></audio>
+          <p>Audios anteriores:</p>
+          {
+            audios.map((v, i) => (
+              <audio key={i} controls src={v}></audio>
+            ))
+          }
+        </>
+      }
     </Container>
   );
 };
@@ -124,8 +155,11 @@ const Home = () => {
 export default Home;
 
 const Container = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  gap: 10px;
   height: calc(100vh - 100px);
-  place-content: center;
   background: linear-gradient(#bfd3d5, #dde4e6);
 `;

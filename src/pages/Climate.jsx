@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { useIdiom } from "../context/idiomContext";
+import LLuvia from "../img/lluvia.png";
+import LLuvia2 from "../img/lluvia2.png";
+import LLuvia3 from "../img/lluvia3.png";
+import Sol from "../img/sol.png";
 
 const Climate = () => {
   const { handleIdioma, idioma } = useIdiom();
@@ -9,9 +13,11 @@ const Climate = () => {
     <Div>
       <Card>
         <Divcaja>
-          <H1grados>22º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          <img src="" alt="" />
+          <div>
+            <H1grados>22º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={Sol} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -24,9 +30,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>23º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          <img src="" alt="" />
+          <div>
+            <H1grados>23º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={LLuvia} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -39,9 +47,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>15º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          <img src="" alt="" />
+          <div>
+            <H1grados>15º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={LLuvia2} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -52,9 +62,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>10º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
-          <img src="" alt="" />
+          <div>
+            <H1grados>10º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={LLuvia} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -65,8 +77,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>19º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
+          <div>
+            <H1grados>19º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={LLuvia3} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -77,8 +92,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>20º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
+          <div>
+            <H1grados>20º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={Sol} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -91,8 +109,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>22º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
+          <div>
+            <H1grados>22º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={Sol} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -103,8 +124,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>30º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
+          <div>
+            <H1grados>30º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={Sol} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -115,8 +139,11 @@ const Climate = () => {
       </Card>
       <Card>
         <Divcaja>
-          <H1grados>32º</H1grados>
-          <Ptiempo>Verano</Ptiempo>
+          <div>
+            <H1grados>32º</H1grados>
+            <Ptiempo>Verano</Ptiempo>
+          </div>
+          <Img src={Sol} alt="" />
         </Divcaja>
         <Divcaja1>
           <Pais>
@@ -136,6 +163,7 @@ width: 100%;
  flex-direction: row;
  flex-wrap: wrap;
  justify-content: space-around;
+ padding: 0 200px 100px;
 `;
 const Card = styled.div`
   min-width: 300px;
