@@ -3,9 +3,11 @@ import styled from "styled-components";
 import WeatherImg from "../../assets/landing/weather.png";
 import MiniImg from "../../assets/landing/mini.png";
 import { useIdiom } from "../../context/idiomContext";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../pages/Footer";
 
 const FirstSection = () => {
+  const navigate = useNavigate();
   const { handleIdioma, idioma } = useIdiom();
 
   return (
@@ -28,8 +30,8 @@ const FirstSection = () => {
               ? "¡Descubre el clima en cada departamento del país y consigue buenos datos del clima en estos momentos!"
               : "Tarinqui kaypi tukuy intista y kapunky sumaj llachainyuj"}
           </Description>
-          <Button>
-          {idioma == "Español"
+          <Button onClick={() => navigate("")}>
+            {idioma == "Español"
               ? "Descarga ahora"
               : "Kaimanta"}
           </Button>

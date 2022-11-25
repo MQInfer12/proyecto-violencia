@@ -11,6 +11,7 @@ import { UserContextProvider } from "./context/userContext";
 import ProtectedRoute from "./wrappers/protectedRoute";
 import { IdiomContextProvider } from "./context/idiomContext";
 import AgregarHistoria from "./pages/agregarHistoria";
+import Instrucciones from "./pages/instrucciones";
 function App() {
   return (
     <UserContextProvider>
@@ -23,6 +24,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cuentanos" element={<AgregarHistoria />} />
+              <Route path="/instrucciones" element={<Instrucciones />} />
               <Route
                 path="/home"
                 element={

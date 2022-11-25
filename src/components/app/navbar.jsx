@@ -20,7 +20,7 @@ const Navbar = () => {
             <LinkStyled to="/">
               {idioma == "Español" ? "Inicio" : "Iniciomanta"}
             </LinkStyled>
-            <LinkStyled to="#">
+            <LinkStyled to="/instrucciones">
               {idioma == "Español" ? "Instrucciones" : "Instruccionesmanta"}
             </LinkStyled>
             <LinkStyled to="/login">
