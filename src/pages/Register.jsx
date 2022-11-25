@@ -162,6 +162,9 @@ const Register = () => {
               setDatos((old) => ({ ...old, emergencia: e.target.value }))
             }
           />
+          <Terms>
+            <input type="checkbox" /> Acepto los <a href="https://drive.google.com/file/d/1EkqyoTVGKGdKs5SmGitSuoFlyG8kO_LP/view?usp=share_link" target="_blank">terminos y condiciones.</a>
+          </Terms>
           <P to="/login">
             {idioma == "Español" ? "Inicio Sesion" : "Qallariy"}
           </P>
@@ -175,3 +178,11 @@ const Register = () => {
 };
 
 export default Register;
+
+const Terms = styled.div`
+  display: flex;
+  gap: 10px;
+  color: #FFFFFF;
+  padding: 20px;
+  font-size: 10px;
+`
