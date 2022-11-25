@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 import { useUserContext } from '../context/userContext'
+import { useIdiom } from "../context/idiomContext";
 
 const Home = () => {
+  const { idioma } = useIdiom();
   const { user } = useUserContext();
   const msg =`¡Soy ${user.nombre} necesito ayuda! mi direccion es ${user.direccion}, la casa ${user.vivienda}, mi CI es ${user.ci}, llamen a mi numero de emergencia ${user.emergencia}`
 
@@ -12,7 +14,7 @@ const Home = () => {
 
   return (
     <Container>
-      <button onClick={handleHelp}>Ayuda</button>
+      <button onClick={handleHelp}>{idioma == "Español" ? "Ayuda" : "Yanapay"}</button>
     </Container>
   )
 }
