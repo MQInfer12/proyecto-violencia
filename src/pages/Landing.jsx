@@ -1,8 +1,9 @@
 import React from 'react'
+import FirstSection from '../components/landing/firstSection'
 
 const Landing = () => {
   return (
-    <div>Landing</div>
+    <FirstSection />
   )
 }
 
