@@ -78,10 +78,8 @@ const Register = () => {
   });
 
   const Registrarse = async () => {
-    editDoc("users", ci, datos);
-  };
-
-  const { handleIdioma, idioma } = useIdiom();
+    editDoc("users", datos.ci, datos);
+  }
 
   return (
     <Container>
