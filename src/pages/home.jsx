@@ -2,10 +2,14 @@ import React from 'react'
 
 const Home = () => {
 
+    const name = 'Martha'
+    const direccion = 'Cala cala'
+    const msg =`soy ${name} necesito ayuda mi direccion es ${direccion}`
+
     const handleHelp = () => {
-        window.open('http://www.example.com?ReportID=1', '_blank');
+        window.open(`https://api.whatsapp.com/send/?phone=59176407344&text=${msg}`, '_blank');
     }
-    //https://walink.co/82f6f3
+    //
 
   return (
     <div>

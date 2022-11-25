@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DesconocidoImg from "../img/desconocido.png";
-
+import { Link, NavLink } from "react-router-dom";
 const Container = styled.div`
   display: grid;
   height: 100vh;
@@ -57,6 +57,14 @@ const Button = styled.button`
     background: linear-gradient(#adb3b5, #27737d);
   }
 `;
+const P = styled(Link)`
+  color: white;
+  font-size: 14px;
+  text-align: end;
+  list-style: none;
+  text-decoration: none;
+  margin-top: 12px;
+`;
 const Login = () => {
   return (
     <Container>
@@ -66,7 +74,8 @@ const Login = () => {
         </ContainerImg>
         <Form action="">
           <Input placeholder="Nombre" type="text" name="" id="" />
-          <Input placeholder="Ci" type="text" name="" id="" />
+          <Input placeholder="contraseña" type="text" name="" id="" />
+            <P to="/register">Create una cuenta</P>
           <Button>Guardar datos</Button>
         </Form>
       </ContainerSoon>
