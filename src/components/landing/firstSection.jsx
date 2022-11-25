@@ -34,7 +34,7 @@ export default FirstSection
 
 const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -4,7 +4,7 @@ import DesconocidoImg from "../img/desconocido.png";
 import { Link, NavLink } from "react-router-dom";
 const Container = styled.div`
   display: grid;
-  height: 100vh;
+  height: calc(100vh - 100px);
   place-content: center;
   background: linear-gradient(#bfd3d5, #dde4e6);
 `;
@@ -40,6 +40,7 @@ const Input = styled.input`
   border: none;
   border-bottom: 1px solid white;
   margin-top: 10px;
+  padding: 10px;
   ::placeholder {
     color: white;
     font-size: 0.8em;

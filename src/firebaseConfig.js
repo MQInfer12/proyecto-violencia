@@ -1,8 +1,8 @@
 export default {
-  apiKey: "AIzaSyCoc6BcHjtcz4zgiqECJlzRWA1T7IX1AJk",
-  authDomain: "cacho-ca92b.firebaseapp.com",
-  projectId: "cacho-ca92b",
-  storageBucket: "cacho-ca92b.appspot.com",
-  messagingSenderId: "1022722209008",
-  appId: "1:1022722209008:web:94463ec4a99b2d8a823e35"
+  apiKey: "AIzaSyBhAvdz3IZpG5cr-1zCfC-r139swH6tDWk",
+  authDomain: "slim-cochabamba.firebaseapp.com",
+  projectId: "slim-cochabamba",
+  storageBucket: "slim-cochabamba.appspot.com",
+  messagingSenderId: "86042400144",
+  appId: "1:86042400144:web:86fba0926b9cc07b6ccf15"
 };

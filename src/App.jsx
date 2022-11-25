@@ -3,7 +3,7 @@ import './App.css';
 import { Routes, Route, HashRouter } from 'react-router-dom';
 import Landing from './pages/landing';
 import Register from './pages/register';
-import Navbar from './assets/app/navbar';
+import Navbar from './components/app/navbar';
 import Login from './pages/login';
 import {FirebaseAppProvider} from 'reactfire';
 import firebaseConfig from './firebaseConfig';
