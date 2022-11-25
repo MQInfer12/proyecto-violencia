@@ -11,6 +11,7 @@ const Container = styled.div`
   h2 {
     text-transform: uppercase;
     font-size: 24px;
+    text-align: center;
   }
   p {
     font-size: 18px;
