@@ -32,17 +32,17 @@ const Footer = () => {
            </P>
          </Divcaja>
          <Divcaja>
-           <h1>Contactos
+           <h1>
            {idioma == "Español" ? "Contactos" : "Kayman wajllay"}
            </h1>
            <P>
-             Fuerza Especial de Lucha Contra la Violencia 
+             
              {idioma == "Español" ? "Fuerza Especial de Lucha Contra la Violencia " : "Llanapay rurasta maqasqasta"}<a href="#"> 77933274- 800140195</a>
              <br />
            </P>
            <P>
              {" "}
-             Fuerza Especial de Lucha Contral el Crimen Beni & Tomas Frias
+             
              {idioma == "Español" ? "Fuerza Especial de Lucha Contra la Violencia " : "Llanapay rurasta maqasqasta"}
              <br /> Telf.:<a href="#">4-4226462</a>
              </P>        
@@ -50,7 +50,7 @@ const Footer = () => {
        </Divfoot>
        <Divv>
         <A href="https://www.cookiebot.com/es/ley-de-cookies/#:~:text=%C2%BFQu%C3%A9%20significa%20la%20ley%20de,prop%C3%B3sitos%20y%20de%20qu%C3%A9%20manera.">Terminos Cookies</A>
-       <A href="https://jjproducciones.com.co/blog/ecommerce-como-redactar-los-terminos-y-condiciones-para-una-pagina-web/">Terminos y condiciones</A>
+       <A href="https://drive.google.com/file/d/1EkqyoTVGKGdKs5SmGitSuoFlyG8kO_LP/view?usp=share_link" target="_blank">Terminos y condiciones</A>
        </Divv>
       </Foter>
     </div>
