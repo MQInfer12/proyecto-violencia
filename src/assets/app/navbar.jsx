@@ -10,6 +10,7 @@ const Navbar = () => {
         <LinkStyled to="#">Inicio</LinkStyled>
         <LinkStyled to="#">Instrucciones</LinkStyled>
         <LinkStyled to="#">Huevo</LinkStyled>
+        <LinkStyled to="#">Informativo</LinkStyled>
       </LinkContainer>
     </Nav>
   )

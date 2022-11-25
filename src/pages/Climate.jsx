@@ -3,132 +3,140 @@ import styled from "styled-components";
 
 const Climate = () => {
   return (
-    <Div>
-      <Card>
-        <Divcaja>
-          <div>
-            <H1grados>22º</H1grados>
-            <Ptiempo>Verano</Ptiempo>
-          </div>
-          <div>
-            <Img src="src/img/sol.png" alt="" />
-          </div>
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-Cochabamba</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-      <Card>
-        <Divcaja>
-         <div>
-             <H1grados>30º</H1grados>
-             <Ptiempo>Verano</Ptiempo>
-         </div>
-          <div>
-            <Img src="src/img/sol.png" alt="" />
-          </div>
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-Santa Cruz</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-      <Card>
-        <Divcaja>
-          <div>
-            <H1grados>15º</H1grados>
-            <Ptiempo>Verano</Ptiempo>
-          </div>
-          <div>
-            <Img src="src/img/lluvia.png" alt="" />
-          </div>
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-Potosi</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-      <Card>
-        <Divcaja>
-          <div>
-            <H1grados>10º</H1grados>
-            <Ptiempo>Verano</Ptiempo>
-          </div>
+    <div>
+        <Div>
+          <Card>
+            <Divcaja>
+              <div>
+                <H1grados>22º</H1grados>
+                <Ptiempo>Verano</Ptiempo>
+              </div>
+              <div>
+                <Img src="src/img/sol.png" alt="" />
+              </div>
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-Cochabamba</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+          <Card>
+            <Divcaja>
+             <div>
+                 <H1grados>30º</H1grados>
+                 <Ptiempo>Verano</Ptiempo>
+             </div>
+              <div>
+                <Img src="src/img/sol.png" alt="" />
+              </div>
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-Santa Cruz</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+          <Card>
+            <Divcaja>
+              <div>
+                <H1grados>15º</H1grados>
+                <Ptiempo>Verano</Ptiempo>
+              </div>
+              <div>
+                <Img src="src/img/lluvia.png" alt="" />
+              </div>
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-Potosi</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+          <Card>
+            <Divcaja>
+              <div>
+                <H1grados>10º</H1grados>
+                <Ptiempo>Verano</Ptiempo>
+              </div>
+        
+              <Img src="src/img/nieve.png" alt="" />
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-Oruro</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+          <Card>
+            <Divcaja>
+              <div>
+                <H1grados>19º</H1grados>
+                <Ptiempo>Verano</Ptiempo>
+              </div>
+              <Img src="src/img/lluvia2.png" alt="" />
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-La paz</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+          <Card>
+            <Divcaja>
+              <div>
+                <H1grados>20º</H1grados>
+                <Ptiempo>Verano</Ptiempo>
+              </div>
+              <Img src="src/img/lluvia3.png" alt="" />
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-Chuquisaca</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+          <Card>
+            <Divcaja>
+              <div>
+                <H1grados>28º</H1grados>
+                <Ptiempo>Verano</Ptiempo>
+              </div>
+              <Img src="src/img/sol.png" alt="" />
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-Pando</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+          <Card>
+            <Divcaja>
+              <div>
+                <H1grados>30º</H1grados>
+                <Ptiempo>Verano</Ptiempo>
+              </div>
+              <Img src="src/img/sol.png" alt="" />
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-Beni</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+          <Card>
+            <Divcaja>
+             <div>
+                 <H1grados>32º</H1grados>
+                 <Ptiempo>Verano</Ptiempo>
+             </div>
+              <Img src="src/img/sol.png" alt="" />
+            </Divcaja>
+            <Divcaja1>
+              <Pais>Bolivia-Tarija</Pais>
+              <Pgrados>20º ~ 29</Pgrados>
+            </Divcaja1>
+          </Card>
+        </Div>  
+        <div>
+            <footer>
 
-          <Img src="src/img/nieve.png" alt="" />
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-Oruro</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-      <Card>
-        <Divcaja>
-          <div>
-            <H1grados>19º</H1grados>
-            <Ptiempo>Verano</Ptiempo>
-          </div>
-          <Img src="src/img/lluvia2.png" alt="" />
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-La paz</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-      <Card>
-        <Divcaja>
-          <div>
-            <H1grados>20º</H1grados>
-            <Ptiempo>Verano</Ptiempo>
-          </div>
-          <Img src="src/img/lluvia3.png" alt="" />
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-Chuquisaca</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-      <Card>
-        <Divcaja>
-          <div>
-            <H1grados>28º</H1grados>
-            <Ptiempo>Verano</Ptiempo>
-          </div>
-          <Img src="src/img/sol.png" alt="" />
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-Pando</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-      <Card>
-        <Divcaja>
-          <div>
-            <H1grados>30º</H1grados>
-            <Ptiempo>Verano</Ptiempo>
-          </div>
-          <Img src="src/img/sol.png" alt="" />
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-Beni</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-      <Card>
-        <Divcaja>
-         <div>
-             <H1grados>32º</H1grados>
-             <Ptiempo>Verano</Ptiempo>
-         </div>
-          <Img src="src/img/sol.png" alt="" />
-        </Divcaja>
-        <Divcaja1>
-          <Pais>Bolivia-Tarija</Pais>
-          <Pgrados>20º ~ 29</Pgrados>
-        </Divcaja1>
-      </Card>
-    </Div>
+            </footer>
+        </div>
+    </div>
+
   );
 };
 export default Climate;
@@ -140,7 +148,6 @@ width: 100%;
  flex-wrap: wrap;
  justify-content: space-around;
 `;
-
 const Card = styled.div`
   min-width: 300px;
   min-height: 50px;
@@ -154,7 +161,6 @@ const Card = styled.div`
 
   
 `;
-
 const Divcaja = styled.div`
   margin: 10px;
   display: flex;
@@ -177,3 +183,5 @@ const Img=styled.img`
     width: 50px;
     height: 50px;
 `;
+//informative
+
