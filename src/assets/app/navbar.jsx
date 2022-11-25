@@ -9,7 +9,7 @@ const Navbar = () => {
       <LinkContainer>
         <LinkStyled to="/">Inicio</LinkStyled>
         <LinkStyled to="#">Instrucciones</LinkStyled>
-        <LinkStyled to="/register">Regístrate</LinkStyled>
+        <LinkStyled to="/login">Regístrate</LinkStyled>
       </LinkContainer>
     </Nav>
   )
@@ -39,4 +39,8 @@ const LinkStyled = styled(Link)`
 const LinkContainer = styled.div`
   display: flex;
   gap: 20px;
+  
+  &:hover {
+    
+  }
 `;
