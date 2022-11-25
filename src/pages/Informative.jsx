@@ -51,7 +51,7 @@ const Informative = () => {
                        <Imgcard src="src/img/violencia2.png" />
                      </figure>
                      <Divcontenido>
-                      <H1>Violencia de genero
+                      <H1>
                       {idioma == "Español" ? "Malay warmy y kari" : "Makakuy warmita"}
                       </H1>
                       <P>
@@ -64,8 +64,11 @@ const Informative = () => {
                        <Imgcard src="src/img/violencia3.png" />
                      </figure>
                      <Divcontenido>
-                      <H1>Sobreviviente de violencia</H1>
-                      <P>Este término se refiere a cualquier persona que haya experimentado violencia sexual o de género. Su significado es similar al de “víctima”, aunque suele preferirse “sobreviviente” frente a este último porque implica resiliencia.</P>                     
+                      <H1>Sobreviviente de violencia
+                      {idioma == "Español" ? "Makakuy ask'a" : "Makakuy warmita"}
+                      </H1>
+                      <P>Este término se refiere a cualquier persona que haya experimentado violencia sexual o de género. Su significado es similar al de “víctima”, aunque suele preferirse “sobreviviente” frente a este último porque implica resiliencia.
+                      {idioma == "Español" ? "Este término se refiere a cualquier persona que haya experimentado violencia sexual o de género. Su significado es similar al de “víctima”, aunque suele preferirse “sobreviviente” frente a este último porque implica resiliencia." : "Kay ruaska tukuy llachayku makakuy "}</P>                     
                      </Divcontenido>
                   </Divcard>
               </Divcontainer>
