@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Img1 from "../img/img1.jpg";
 import Img2 from "../img/img2.jpg";
 import Img3 from "../img/img3.jpg";
+import { useIdiom } from "../context/idiomContext";
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -31,22 +33,38 @@ const Container = styled.div`
   }
 `;
 const Instrucciones = () => {
+  const { idioma } = useIdiom();
   return (
     <Container>
-      <h2>Pasos para tener la aplicacion</h2>
+      <h2>
+      {idioma == "Español" ? "Pasos para tener la aplicaciony" : "Llachachy kayta"}
+      </h2>
       <div>
-        <p>Paso 1:</p>
-        <span>Dar a los 3 puntitos y a la opcion agregar pantalla</span>
+        <p>Paso 1:
+          
+          {idioma == "Español" ? "Paso 1:" : "Uj:"}
+        </p>
+        <span>
+        {idioma == "Español" ? "Dar a los 3 puntitos y a la opcion agregar pantalla" : "ñity kinsa puntitusman chantary rikuchy qawana "}
+        </span>
         <img src={Img1} alt="" />
       </div>
       <div>
-        <p>Paso 2:</p>
-        <span>Nos aparecera una ventana como esta</span>
+        <p>Paso 2:
+        {idioma == "Español" ? "Paso 2:" : "Iskay:"}
+        </p>
+        <span>
+        {idioma == "Español" ? "Nos aparecera una ventana como esta" : "Rikyrinantian kayjina"}
+        </span>
         <img src={Img2} alt="" />
       </div>
       <div>
-        <p>Paso3 :</p>
-        <span>Damos clic a agregar</span>
+        <p>
+          {idioma == "Español" ? "Tres:" : "Kinsa:"}
+        </p>
+        <span>
+        {idioma == "Español" ? "Damos clic a agregar" : "ñity jaichapi"}
+        </span>
         <img src={Img3} alt="" />
       </div>
     </Container>

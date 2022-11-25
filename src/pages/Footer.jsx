@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useIdiom } from "../context/idiomContext";
+
 
 const Footer = () => {
+    const { idioma } = useIdiom();
   return (
     <div>
       <Foter>
@@ -28,14 +31,18 @@ const Footer = () => {
            </P>
          </Divcaja>
          <Divcaja>
-           <h1>Contactos</h1>
+           <h1>Contactos
+           {idioma == "Español" ? "Contactos" : "Kayman wajllay"}
+           </h1>
            <P>
-             Fuerza Especial de Lucha Contra la Violencia <a href="#"> 77933274- 800140195</a>
+             Fuerza Especial de Lucha Contra la Violencia 
+             {idioma == "Español" ? "Fuerza Especial de Lucha Contra la Violencia " : "Llanapay rurasta maqasqasta"}<a href="#"> 77933274- 800140195</a>
              <br />
            </P>
            <P>
              {" "}
              Fuerza Especial de Lucha Contral el Crimen Beni & Tomas Frias
+             {idioma == "Español" ? "Fuerza Especial de Lucha Contra la Violencia " : "Llanapay rurasta maqasqasta"}
              <br /> Telf.:<a href="#">4-4226462</a>
              </P>        
          </Divcaja>
