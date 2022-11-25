@@ -4,7 +4,8 @@ import DesconocidoImg from "../img/desconocido.png";
 import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../utilities/firebase";
 import { useUserContext } from "../context/userContext";
-
+import { useIdiom } from "../context/idiomContext";
+import swal from "sweetalert";
 const Login = () => {
   const { setUser } = useUserContext();
   const navigate = useNavigate();
@@ -13,17 +14,17 @@ const Login = () => {
     nombre: "",
     password: "",
   });
-
+  const { idioma } = useIdiom();
   const IniciarSesion = async () => {
     const user = await getUser(datos.nombre, datos.password);
-    if(user) {
+    if (user) {
       setUser(user);
       navigate("/home");
     } else {
-      alert("Usuario o contraseña incorrectos");
+      swal("Oops!", "Usuario o contraseña incorrectos", "error");
     }
-  }
-  
+  };
+
   return (
     <Container>
       <ContainerSoon>
@@ -31,18 +32,28 @@ const Login = () => {
           <Img src={DesconocidoImg} alt="" />
         </ContainerImg>
         <Form action="">
-          <Input placeholder="Nombre" type="text" value={datos.nombre} 
-            onChange={
-              (e) => setDatos(old => ({...old, nombre: e.target.value}))
+          <Input
+            placeholder={idioma == "Español" ? "Nombre" : "Suti"}
+            type="text"
+            value={datos.nombre}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, nombre: e.target.value }))
             }
           />
-          <Input placeholder="contraseña" type="text" value={datos.password} 
-            onChange={
-              (e) => setDatos(old => ({...old, password: e.target.value}))
+          <Input
+            placeholder={idioma == "Español" ? "Contraseña" : "Cuzqueño"}
+            type="text"
+            value={datos.password}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, password: e.target.value }))
             }
           />
-          <P to="/register">Create una cuenta</P>
-          <Button onClick={IniciarSesion}>Iniciar datos</Button>
+          <P to="/register">
+            {idioma == "Español" ? "Crear nueva cuenta" : "Kamay mosoj"}
+          </P>
+          <Button onClick={IniciarSesion}>
+            {idioma == "Español" ? "Iniciar datos" : "Qallary"}
+          </Button>
         </Form>
       </ContainerSoon>
     </Container>
@@ -122,4 +133,3 @@ const P = styled(Link)`
   text-decoration: none;
   margin-top: 12px;
 `;
-

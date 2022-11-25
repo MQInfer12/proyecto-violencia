@@ -23,7 +23,7 @@ const Climate = () => {
           <Pais>
             {idioma == "Español"
               ? " Bolivia-Cochabamba"
-              : "Bolivia-llajtamante"}
+              : "Buliwya-llajtamante"}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -40,7 +40,7 @@ const Climate = () => {
           <Pais>
             {idioma == "Español"
               ? "Bolivia-Santa Cruz"
-              : "Bolivia-Santa Cruz manta"}
+              : "Buliwya-Santa Cruz"}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -55,7 +55,7 @@ const Climate = () => {
         </Divcaja>
         <Divcaja1>
           <Pais>
-            {idioma == "Español" ? "Bolivia-Potosi" : "Bolivia-Potosi manta"}
+            {idioma == "Español" ? "Bolivia-Potosi" : "Buliwya-Potosi"}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -70,7 +70,7 @@ const Climate = () => {
         </Divcaja>
         <Divcaja1>
           <Pais>
-            {idioma == "Español" ? "Bolivia-Oruro" : "Bolivia-Oruro manta"}
+            {idioma == "Español" ? "Bolivia-Oruro" : "Buliwya-Oruro "}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -85,7 +85,7 @@ const Climate = () => {
         </Divcaja>
         <Divcaja1>
           <Pais>
-            {idioma == "Español" ? "Bolivia la paz" : "Bolivia la paz manta"}
+            {idioma == "Español" ? "Bolivia la paz" : "Buliwya La Paz "}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -102,7 +102,7 @@ const Climate = () => {
           <Pais>
             {idioma == "Español"
               ? "Bolivia chuquisica"
-              : "Bolivia chuquisaca manta"}
+              : "Buliwya chuquisaca "}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -117,7 +117,7 @@ const Climate = () => {
         </Divcaja>
         <Divcaja1>
           <Pais>
-            {idioma == "Español" ? "Bolivia pando" : "Bolivia pando manta"}
+            {idioma == "Español" ? "Bolivia pando" : "Buliwya Pando "}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -132,7 +132,7 @@ const Climate = () => {
         </Divcaja>
         <Divcaja1>
           <Pais>
-            {idioma == "Español" ? "Bolivia beni" : "Bolivia beni manta"}
+            {idioma == "Español" ? "Bolivia beni" : "Buliwya Beni "}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -147,7 +147,7 @@ const Climate = () => {
         </Divcaja>
         <Divcaja1>
           <Pais>
-            {idioma == "Español" ? "Bolivia-Tarija" : "Bolivia tarija manta"}
+            {idioma == "Español" ? "Bolivia-Tarija" : "Buliwya Tarija"}
           </Pais>
           <Pgrados>20º ~ 29</Pgrados>
         </Divcaja1>
@@ -196,5 +196,5 @@ const Img=styled.img`
     width: 50px;
     height: 50px;
 `;
-//informative
+
 

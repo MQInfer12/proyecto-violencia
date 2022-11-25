@@ -80,7 +80,7 @@ const Register = () => {
 
   const Registrarse = async () => {
     editDoc("users", datos.ci, {...datos, audios: []});
-    alert("Se registró correctamente");
+    swal("Correcto!", "Te creaste con exito la cuenta!", "success");
     setDatos({
       nombre: "",
       telefono: "",
@@ -100,7 +100,7 @@ const Register = () => {
         </ContainerImg>
         <Form action="">
           <Input
-            placeholder="Nombre"
+            placeholder={idioma == "Español" ? "Nombre" : "Sutiky"}
             type="text"
             value={datos.nombre}
             onChange={(e) =>
@@ -108,7 +108,7 @@ const Register = () => {
             }
           />
           <Input
-            placeholder="Numero de telefono"
+            placeholder={idioma == "Español" ? "Numero Telefono" : "karu rimay"}
             type="text"
             value={datos.telefono}
             onChange={(e) =>
@@ -116,7 +116,7 @@ const Register = () => {
             }
           />
           <Input
-            placeholder="Ci"
+            placeholder={idioma == "Español" ? "Carnet" : "karu rimay kanmanta"}
             type="text"
             value={datos.ci}
             onChange={(e) =>
@@ -124,7 +124,7 @@ const Register = () => {
             }
           />
           <Input
-            placeholder="Contraseña"
+            placeholder={idioma == "Español" ? "Contraseña" : "Cuzqueño"}
             type="text"
             value={datos.password}
             onChange={(e) =>
@@ -132,7 +132,9 @@ const Register = () => {
             }
           />
           <Input
-            placeholder="Direccion exacta"
+            placeholder={
+              idioma == "Español" ? "Direccion exacta" : "Maypi Tiakunky"
+            }
             type="text"
             value={datos.direccion}
             onChange={(e) =>
@@ -140,7 +142,7 @@ const Register = () => {
             }
           />
           <Input
-            placeholder="Vivienda"
+            placeholder={idioma == "Español" ? "Vivienda" : "Wasy"}
             type="text"
             value={datos.vivienda}
             onChange={(e) =>
@@ -148,16 +150,20 @@ const Register = () => {
             }
           />
           <Input
-            placeholder="Numero de emergencia"
+            placeholder={
+              idioma == "Español" ? "Numero de emergencia" : "karu rimay"
+            }
             type="text"
             value={datos.emergencia}
             onChange={(e) =>
               setDatos((old) => ({ ...old, emergencia: e.target.value }))
             }
           />
-          <P to="/login">Iniciar sesion</P>
+          <P to="/login">
+            {idioma == "Español" ? "Inicio Sesion" : "Qallariy"}
+          </P>
           <Button onClick={Registrarse}>
-            {idioma == "Español" ? "Guardar Datos" : "Guardar datos manta"}
+            {idioma == "Español" ? "Guardar Datos" : "Jallch'ay"}
           </Button>
         </Form>
       </ContainerSoon>

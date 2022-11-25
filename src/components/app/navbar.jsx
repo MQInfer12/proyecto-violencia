@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom';
-import { useUserContext } from '../../context/userContext';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useUserContext } from "../../context/userContext";
 import { useIdiom } from "../../context/idiomContext";
 
 const Navbar = () => {
@@ -9,40 +9,45 @@ const Navbar = () => {
   const { handleIdioma, idioma } = useIdiom();
   return (
     <Nav>
-      {
-        Object.keys(user).length === 0 ? 
-        <Title> {idioma == "Español" ? "Clima" : "Climatay"}</Title> :
+      {Object.keys(user).length === 0 ? (
+        <Title> {idioma == "Español" ? "Clima" : "Climatay"}</Title>
+      ) : (
         <Title>Ñeke</Title>
-      }
+      )}
       <LinkContainer>
-        {
-          Object.keys(user).length === 0 ? 
+        {Object.keys(user).length === 0 ? (
           <>
             <LinkStyled to="/">
               {idioma == "Español" ? "Inicio" : "Iniciomanta"}
             </LinkStyled>
-            <LinkStyled to="#">
+            <LinkStyled to="/instrucciones">
               {idioma == "Español" ? "Instrucciones" : "Instruccionesmanta"}
             </LinkStyled>
             <LinkStyled to="/login">
               {idioma == "Español" ? "Registrate" : "Registratemanta"}
-            </LinkStyled> 
+            </LinkStyled>
             <LinkStyled onClick={handleIdioma}>
               Ver en {idioma === "Español" ? "Quechua" : "Español"}
             </LinkStyled>
-          </> :
-            <>
+          </>
+        ) : (
+          <>
             <LinkStyled to="#">
               {idioma == "Español" ? "Instrucciones" : "Instruccionesmanta"}
             </LinkStyled>
             <LinkStyled to="/login" onClick={() => setUser({})}>
               {idioma === "Español" ? "Cerrar sesión" : "Whisk'ana"}
             </LinkStyled>
+            <LinkStyled to="/cuentanos">
+              {idioma === "Español"
+                ? "Cuentanos tu historia"
+                : "Yachachiwa qasaguiqui"}
+            </LinkStyled>
             <LinkStyled onClick={handleIdioma}>
-              Ver en  {idioma === "Español" ? "Quechua" : "Español"}
+              Ver en {idioma === "Español" ? "Quechua" : "Español"}
             </LinkStyled>
           </>
-        }
+        )}
       </LinkContainer>
     </Nav>
   );

@@ -4,6 +4,7 @@ import WeatherImg from "../../assets/landing/weather.png";
 import MiniImg from "../../assets/landing/mini.png";
 import { useIdiom } from "../../context/idiomContext";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../pages/Footer";
 
 const FirstSection = () => {
   const navigate = useNavigate();
@@ -16,13 +17,13 @@ const FirstSection = () => {
           <Titlecontainer>
             <Title>
               <ImgMini src={MiniImg} />
-              {idioma == "Español" ? "Clima en Bolivia" : "Clima Boliviamanta"}
+              {idioma == "Español" ? "Clima en Bolivia" : "Clima Buliwya"}
             </Title>
           </Titlecontainer>
           <TextClima>
             {idioma == "Español"
               ? "¡Clima en toda Bolivia!"
-              : "Clima tukuy Boliviamanta"}
+              : "Clima tukuy Buliwya"}
           </TextClima>
           <Description>
             {idioma == "Español"
@@ -39,6 +40,7 @@ const FirstSection = () => {
           <ImgClima src={WeatherImg} />
         </ImageContainer>
       </ClimaContainer>
+      
     </Container>
   );
 };
