@@ -60,6 +60,7 @@ border-top: 1px solid rgba(0,0,0,.3);
 const Divfoot=styled.div`
   display: flex;
   justify-content: space-around;  
+  flex-wrap: wrap;
 `;
 const P = styled.p`
   margin: 10px;
