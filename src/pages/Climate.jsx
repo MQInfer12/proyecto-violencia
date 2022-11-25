@@ -130,13 +130,13 @@ const Climate = () => {
 };
 export default Climate;
 const Div = styled.div`
-  background-color: #bfd3d5;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+background-color:#BFD3D5;
+width: 100%;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: space-around;
 `;
-
 const Card = styled.div`
   min-width: 300px;
   min-height: 50px;
@@ -147,9 +147,10 @@ const Card = styled.div`
   border-radius: 10px;
   padding: 20px;
 `;
-
 const Divcaja = styled.div`
   margin: 10px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Divcaja1 = styled.div`
@@ -163,3 +164,9 @@ const Pais = styled.p``;
 const Pgrados = styled.p`
   color: rgba(0, 0, 0, 0.5);
 `;
+const Img=styled.img`
+    width: 50px;
+    height: 50px;
+`;
+//informative
+
