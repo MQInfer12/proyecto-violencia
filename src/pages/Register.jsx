@@ -79,8 +79,17 @@ const Register = () => {
   });
 
   const Registrarse = async () => {
-    editDoc("users", datos.ci, datos);
+    editDoc("users", datos.ci, {...datos, audios: []});
     swal("Correcto!", "Te creaste con exito la cuenta!", "success");
+    setDatos({
+      nombre: "",
+      telefono: "",
+      ci: "",
+      password: "",
+      direccion: "",
+      vivienda: "",
+      emergencia: "",
+    });
   };
 
   return (
