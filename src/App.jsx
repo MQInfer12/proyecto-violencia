@@ -4,7 +4,7 @@ import { Routes, Route, HashRouter } from 'react-router-dom';
 import Landing from './pages/landing';
 import Register from './pages/register';
 import Navbar from './assets/app/navbar';
-
+import Login from './pages/login'
 
 function App() {
   return (
