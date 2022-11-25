@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../utilities/firebase";
 import { useUserContext } from "../context/userContext";
 import { useIdiom } from "../context/idiomContext";
-
+import swal from "sweetalert";
 const Login = () => {
   const { setUser } = useUserContext();
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Login = () => {
       setUser(user);
       navigate("/home");
     } else {
-      alert("Usuario o contraseña incorrectos");
+      swal("Oops!", "Usuario o contraseña incorrectos", "error");
     }
   };
 
@@ -48,8 +48,12 @@ const Login = () => {
               setDatos((old) => ({ ...old, password: e.target.value }))
             }
           />
-          <P to="/register">{idioma == "Español" ? "Crear nueva cuenta" : "Kamay mosoj"}</P>
-          <Button onClick={IniciarSesion}>{idioma == "Español" ? "Iniciar datos" : "Qallary"}</Button>
+          <P to="/register">
+            {idioma == "Español" ? "Crear nueva cuenta" : "Kamay mosoj"}
+          </P>
+          <Button onClick={IniciarSesion}>
+            {idioma == "Español" ? "Iniciar datos" : "Qallary"}
+          </Button>
         </Form>
       </ContainerSoon>
     </Container>
