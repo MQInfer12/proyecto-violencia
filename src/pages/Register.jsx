@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DesconocidoImg from "../img/desconocido.png";
 import { Link } from "react-router-dom";
 import { editDoc } from "../utilities/firebase";
+import { useIdiom } from "../context/idiomContext";
 
 const Container = styled.div`
   display: grid;
@@ -73,12 +74,14 @@ const Register = () => {
     password: "",
     direccion: "",
     vivienda: "",
-    emergencia: ""
+    emergencia: "",
   });
 
   const Registrarse = async () => {
     editDoc("users", ci, datos);
-  }
+  };
+
+  const { handleIdioma, idioma } = useIdiom();
 
   return (
     <Container>
@@ -87,43 +90,66 @@ const Register = () => {
           <Img src={DesconocidoImg} alt="" />
         </ContainerImg>
         <Form action="">
-          <Input placeholder="Nombre" type="text" value={datos.nombre} 
-            onChange={
-              (e) => setDatos(old => ({...old, nombre: e.target.value}))
+          <Input
+            placeholder="Nombre"
+            type="text"
+            value={datos.nombre}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, nombre: e.target.value }))
             }
           />
-          <Input placeholder="Numero de telefono" type="text" value={datos.telefono} 
-            onChange={
-              (e) => setDatos(old => ({...old, telefono: e.target.value}))
+          <Input
+            placeholder="Numero de telefono"
+            type="text"
+            value={datos.telefono}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, telefono: e.target.value }))
             }
           />
-          <Input placeholder="Ci" type="text" value={datos.ci} 
-            onChange={
-              (e) => setDatos(old => ({...old, ci: e.target.value}))
+          <Input
+            placeholder="Ci"
+            type="text"
+            value={datos.ci}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, ci: e.target.value }))
             }
           />
-          <Input placeholder="Contraseña" type="text" value={datos.password} 
-            onChange={
-              (e) => setDatos(old => ({...old, password: e.target.value}))
+          <Input
+            placeholder="Contraseña"
+            type="text"
+            value={datos.password}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, password: e.target.value }))
             }
           />
-          <Input placeholder="Direccion exacta" type="text" value={datos.direccion} 
-            onChange={
-              (e) => setDatos(old => ({...old, direccion: e.target.value}))
+          <Input
+            placeholder="Direccion exacta"
+            type="text"
+            value={datos.direccion}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, direccion: e.target.value }))
             }
           />
-          <Input placeholder="Vivienda" type="text" value={datos.vivienda} 
-            onChange={
-              (e) => setDatos(old => ({...old, vivienda: e.target.value}))
+          <Input
+            placeholder="Vivienda"
+            type="text"
+            value={datos.vivienda}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, vivienda: e.target.value }))
             }
           />
-          <Input placeholder="Numero de emergencia" type="text" value={datos.emergencia} 
-            onChange={
-              (e) => setDatos(old => ({...old, emergencia: e.target.value}))
+          <Input
+            placeholder="Numero de emergencia"
+            type="text"
+            value={datos.emergencia}
+            onChange={(e) =>
+              setDatos((old) => ({ ...old, emergencia: e.target.value }))
             }
           />
           <P to="/login">Iniciar sesion</P>
-          <Button onClick={Registrarse}>Guardar datos</Button>
+          <Button onClick={Registrarse}>
+            {idioma == "Español" ? "Guardar Datos" : "Guardar datos manta"}
+          </Button>
         </Form>
       </ContainerSoon>
     </Container>

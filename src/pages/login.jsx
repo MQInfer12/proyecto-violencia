@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import DesconocidoImg from "../img/desconocido.png";
 import { Link, NavLink } from "react-router-dom";
+import { useIdiom } from "../context/idiomContext";
 const Container = styled.div`
   display: grid;
   height: calc(100vh - 100px);
@@ -67,6 +68,7 @@ const P = styled(Link)`
   margin-top: 12px;
 `;
 const Login = () => {
+  const { handleIdioma, idioma } = useIdiom();
   return (
     <Container>
       <ContainerSoon>
@@ -76,7 +78,9 @@ const Login = () => {
         <Form action="">
           <Input placeholder="Nombre" type="text" name="" id="" />
           <Input placeholder="contraseña" type="text" name="" id="" />
-            <P to="/register">Create una cuenta</P>
+          <P to="/register">
+            {idioma == "Español" ? "Create una cuenta" : "Create"}
+          </P>
           <Button>Guardar datos</Button>
         </Form>
       </ContainerSoon>
