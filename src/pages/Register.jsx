@@ -67,6 +67,7 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  const { idioma } = useIdiom();
   const [datos, setDatos] = useState({
     nombre: "",
     telefono: "",
@@ -79,7 +80,7 @@ const Register = () => {
 
   const Registrarse = async () => {
     editDoc("users", datos.ci, datos);
-  }
+  };
 
   return (
     <Container>
