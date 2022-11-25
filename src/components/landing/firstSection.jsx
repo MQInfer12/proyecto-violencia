@@ -15,7 +15,7 @@ const FirstSection = () => {
             </Title>
           </Titlecontainer>
           <TextClima>
-            ¡Clima y tiempo en toda Bolivia!
+            ¡Clima en toda Bolivia!
           </TextClima>
           <Description>
             ¡Descubre el clima en cada departamento del país y consigue buenos datos del clima en estos momentos!
@@ -33,7 +33,7 @@ const FirstSection = () => {
 export default FirstSection
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -51,17 +51,16 @@ const ClimaContainer = styled.div`
   height: 100%;
   background-color: #EFEFEF;
   padding: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
 
   @media (max-width: 1325px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    flex-direction: column;
     gap: 40px;
   }
 `;
 
 const TextContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -86,6 +85,7 @@ const Titlecontainer = styled.h2`
 `;
 
 const ImageContainer = styled.div`
+  width: 100%;
   background-color: #DDE4E6;
   display: flex;
   align-items: center;
@@ -103,6 +103,10 @@ const ImgClima = styled.img`
 
 const ImgMini = styled.img`
   object-fit: cover;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const TextClima = styled.h3`
